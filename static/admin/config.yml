@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ouroakley/main
+  repo: ouroakley/example-group
   branch: main
   site_domain: https://www.ouroakley.uk
   base_url: https://www.ouroakley.uk
@@ -11,8 +11,9 @@ editor:
   preview: false
 
 publish_mode: editorial_workflow
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+#  Use relative
+media_folder: ''
+public_folder: ''
 
 collections:
   - name: "events"
@@ -24,17 +25,13 @@ collections:
     nested:
       depth: 5
       summary: '{{dirname}}'
-      subfolders: false
+      subfolders: true
     view_groups:
       - label: "Venue"
         field: venues
       - label: "Organiser"
         field: organisers
-    meta:
-      path:
-        widget: string
-        label: 'Path'
-        index_file: 'index'
+    path: '{{slug}}/index'
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", required: false}
@@ -66,11 +63,7 @@ collections:
     nested:
       depth: 100
       summary: '{{title}}'
-    meta:
-      path:
-        widget: string
-        label: 'Path'
-        index_file: '_index'
+    path: '{{slug}}/_index'
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", required: false}
@@ -85,11 +78,7 @@ collections:
     nested:
       depth: 100
       summary: '{{title}}'
-    meta:
-      path:
-        widget: string
-        label: 'Path'
-        index_file: '_index'
+    path: '{{slug}}/_index'
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Full Name", name: "fullName", widget: "string", required: false}
