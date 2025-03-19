@@ -24,7 +24,7 @@ collections:
     nested:
       depth: 5
       summary: '{{dirname}}'
-      subfolders: false
+      subfolders: true
     view_groups:
       - label: "Venue"
         field: venues
