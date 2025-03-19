@@ -31,6 +31,7 @@ collections:
         field: venues
       - label: "Organiser"
         field: organisers
+    path: '{{slug}}/index'
     meta:
       path:
         widget: string
@@ -67,6 +68,7 @@ collections:
     nested:
       depth: 100
       summary: '{{title}}'
+    path: '{{slug}}/_index'
     meta:
       path:
         widget: string
@@ -86,6 +88,7 @@ collections:
     nested:
       depth: 100
       summary: '{{title}}'
+    path: '{{slug}}/_index'
     meta:
       path:
         widget: string
