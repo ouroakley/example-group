@@ -11,8 +11,9 @@ editor:
   preview: false
 
 publish_mode: editorial_workflow
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+#  Use relative
+media_folder: ''
+public_folder: ''
 
 collections:
   - name: "events"
