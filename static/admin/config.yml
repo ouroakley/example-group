@@ -19,7 +19,7 @@ collections:
   - name: "events"
     label: "Events"
     label_singular: "Event"
-    folder: "content/events/"
+    folder: "content/events"
     create: true
     summary: "{{title}} - {{eventStart | date('DD MMM YYYY')}}"
     nested:
@@ -31,7 +31,7 @@ collections:
         field: venues
       - label: "Organiser"
         field: organisers
-    path: '{{slug}}/_index'
+    path: '{{slug}}/index'
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", required: false}
@@ -58,7 +58,7 @@ collections:
   - name: "venues"
     label: "Venues"
     label_singular: "Venue"
-    folder: "content/venues/"
+    folder: "content/venues"
     create: true
     nested:
       depth: 100
@@ -73,7 +73,7 @@ collections:
   - name: "organisers"
     label: "Organisers"
     label_singular: "Organiser"
-    folder: "content/organisers/"
+    folder: "content/organisers"
     create: true
     nested:
       depth: 100
