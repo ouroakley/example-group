@@ -10,7 +10,7 @@ backend:
 editor:
   preview: false
 
-publish_mode: editorial_workflow
+publish_mode: simple
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
@@ -47,6 +47,7 @@ collections:
         value_field: "{{title}}"
         display_fields: ["title"]
         multiple: true
+        options_url: "https://www.ouroakley.uk/venues/index.json"
       - label: "Organisers"
         name: "organisers"
         widget: "relation"
@@ -55,6 +56,7 @@ collections:
         value_field: "{{title}}"
         display_fields: ["title"]
         multiple: true
+        options_url: "https://www.ouroakley.uk/organisers/index.json"
       - {label: "Content", name: "body", widget: "markdown", required: false}
 
   - name: "venues"
