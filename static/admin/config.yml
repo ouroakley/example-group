@@ -1,0 +1,98 @@
+backend:
+  name: github
+  repo: ouroakley/example-group
+  branch: main
+  site_domain: https://www.ouroakley.uk
+  base_url: https://www.ouroakley.uk
+  auth_endpoint: /api/auth
+  squash_merges: true
+
+editor:
+  preview: false
+
+publish_mode: simple
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "events"
+    label: "Events"
+    label_singular: "Event"
+    folder: "content/events"
+    create: true
+    summary: "{{title}} - {{eventStart | date('DD MMM YYYY')}}"
+    nested:
+      depth: 5
+      summary: '{{dirname}}'
+      subfolders: true
+    view_groups:
+      - label: "Venue"
+        field: venues
+      - label: "Organiser"
+        field: organisers
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Event Start", name: "eventStart", widget: "datetime"}
+      - {label: "Event End", name: "eventEnd", widget: "datetime", required: false}
+      - label: "Venues"
+        hint: "Enter the venues for this event. Comma seperated, with no spaces. Replace spaces with a dash."
+        name: "venues"
+        widget: "list"
+        required: false
+      - label: "Organisers"
+        hint: "Enter the organisers for this event. Comma seperated, with no spaces. Replace spaces with a dash."
+        name: "organisers"
+        widget: "list"
+        required: false
+      - {label: "Content", name: "body", widget: "markdown", required: false}
+
+  - name: "organisers-info"
+    label: "Organiser Info"
+    label_singular: "Organiser Info"
+    folder: "content/organisers-info"
+    create: true
+    nested:
+      depth: 2
+      summary: '{{title}}'
+      subfolders: true
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Content", name: "body", widget: "markdown", required: false}
+      - label: "Build Settings"
+        name: "build"
+        widget: "hidden"
+        default: 
+          render: "never"
+          list: "always"
+          publishResources: true
+
+  - name: "venues-info"
+    label: "Venue Info"
+    label_singular: "Venue Info"
+    folder: "content/venues-info"
+    create: true
+    nested:
+      depth: 2
+      summary: '{{title}}'
+      subfolders: true
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Content", name: "body", widget: "markdown", required: false}
+      - label: "Build Settings"
+        name: "build"
+        widget: "hidden"
+        default: 
+          render: "never"
+          list: "always"
+          publishResources: true
